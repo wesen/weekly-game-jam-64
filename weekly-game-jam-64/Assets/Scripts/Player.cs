@@ -28,10 +28,6 @@ public class Player : MonoBehaviour {
             Physics2D.BoxCast(transform.position, _boxCollider.size, 0, _moveDelta,
                 _moveDelta.magnitude * Time.deltaTime,
                 LayerMask.GetMask("Collision", "Actors"));
-        if (hit.collider != null) {
-            Debug.Log("hit " + hit.collider + " " + _moveDelta);
-        }
-
         if (hit.collider == null) {
             transform.Translate(_moveDelta * Time.deltaTime);
         }
