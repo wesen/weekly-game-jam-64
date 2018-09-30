@@ -24,6 +24,7 @@ GameObject:
   - component: {fileID: 61780662840736368}
   - component: {fileID: 95137544454202716}
   - component: {fileID: 114697193450851850}
+  - component: {fileID: 114755852073596108}
   m_Layer: 10
   m_Name: player_0
   m_TagString: Untagged
@@ -56,7 +57,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.00518642, y: -0.005410582}
+  m_Offset: {x: 0.0051864237, y: -0.099499375}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -67,7 +68,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.1344445, y: 0.29585266}
+  m_Size: {x: 0.1344445, y: 0.107675076}
   m_EdgeRadius: 0
 --- !u!95 &95137544454202716
 Animator:
@@ -93,13 +94,27 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1752042927416548}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cda152c9a96a2d74797a4206de700350, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   EntryInterval_s: 0.5
   LogInterval_s: 3
+--- !u!114 &114755852073596108
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1752042927416548}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d61fa88d80cfab2408a3f42360f82c19, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  messagesFromServer: []
+  pathsFromServer: []
+  ServerURL: https://wgj64-server.herokuapp.com/
 --- !u!114 &114833671438888804
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -111,8 +126,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b3ea0c0b67d01241ba72f4a44aa366e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Speed: 0.3
-  PositionDebounce_s: 0.5
+  Speed: 0.8
 --- !u!212 &212902937427974096
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -147,7 +161,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 3
   m_Sprite: {fileID: 21300000, guid: 992d98e15ce5d7d41b4b98425a6d863b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

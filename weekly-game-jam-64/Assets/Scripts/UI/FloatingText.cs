@@ -8,8 +8,8 @@ public class FloatingText : MonoBehaviour {
 
     void Awake() {
         _textMesh = GetComponent<TextMesh>();
-
         LeanTween.color(_textMesh.gameObject, Color.clear, 0.0f);
+        GetComponent<MeshRenderer>().sortingLayerName = "Text";
     }
 
     public void ShowText(string text) {

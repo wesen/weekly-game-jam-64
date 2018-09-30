@@ -12,7 +12,7 @@ public class Player : MonoBehaviour {
 
     void Awake(){
         _animator = GetComponent<Animator>();
-        _animator.speed = 2;
+        _animator.speed = Speed * 2;
     }
 
     void FixedUpdate() {
@@ -32,6 +32,15 @@ public class Player : MonoBehaviour {
             _animator.Play("player_walking_up");
         } else {
             _animator.Play("player_idle_frontal");
+        }
+    }
+
+    private void OnDrawGizmos() {
+        if (_boxCollider != null) {
+            Gizmos.color = Color.red;
+            Vector3 offset = new Vector3(_boxCollider.offset.x, _boxCollider.offset.y, 0);
+            Gizmos.DrawWireCube(_boxCollider.transform.position + offset,
+                _boxCollider.size);
         }
     }
 }
