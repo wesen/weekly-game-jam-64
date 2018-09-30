@@ -22,8 +22,8 @@ GameObject:
   - component: {fileID: 212902937427974096}
   - component: {fileID: 114833671438888804}
   - component: {fileID: 61780662840736368}
-  - component: {fileID: 111156752059464626}
   - component: {fileID: 95137544454202716}
+  - component: {fileID: 114697193450851850}
   m_Layer: 10
   m_Name: player_0
   m_TagString: Untagged
@@ -87,23 +87,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!111 &111156752059464626
-Animation:
+--- !u!114 &114697193450851850
+MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1752042927416548}
   m_Enabled: 1
-  serializedVersion: 3
-  m_Animation: {fileID: 7400000, guid: cf89e22f1869dfb4aaf2b81425c236fb, type: 2}
-  m_Animations:
-  - {fileID: 7400000, guid: cf89e22f1869dfb4aaf2b81425c236fb, type: 2}
-  - {fileID: 7400000, guid: 378b505c2e927664c837ef1da4c42678, type: 2}
-  - {fileID: 7400000, guid: ecad2a3b65d9adb40819f0e00e7802b6, type: 2}
-  m_WrapMode: 2
-  m_PlayAutomatically: 1
-  m_AnimatePhysics: 0
-  m_CullingType: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cda152c9a96a2d74797a4206de700350, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EntryInterval_s: 0.5
+  LogInterval_s: 3
 --- !u!114 &114833671438888804
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -116,6 +112,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Speed: 0.3
+  PositionDebounce_s: 0.5
 --- !u!212 &212902937427974096
 SpriteRenderer:
   m_ObjectHideFlags: 1

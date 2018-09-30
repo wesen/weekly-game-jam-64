@@ -7,7 +7,7 @@ using UnityEngine.Networking;
 using Newtonsoft.Json;
 
 
-public class API : MonoBehaviour {
+public class APIClient : MonoBehaviour {
     //Message Get
     public List<messageObject> messagesFromServer = new List<messageObject>();
 
@@ -16,7 +16,8 @@ public class API : MonoBehaviour {
     }
 
     private IEnumerator CRGetMessages() {
-        using (UnityWebRequest www = UnityWebRequest.Get("https://wgj64-server.herokuapp.com/api/messages")) {
+        string url = ServerURL + "api/messages";
+        using (UnityWebRequest www = UnityWebRequest.Get(url)) {
             yield return www.Send();
 
             if (www.isNetworkError || www.isHttpError) {
@@ -67,7 +68,7 @@ public class API : MonoBehaviour {
 
         Debug.Log(json);
 
-        var request = new UnityWebRequest("https://wgj64-server.herokuapp.com/api/messages", "POST");
+        var request = new UnityWebRequest(ServerURL, "POST");
         request.uploadHandler = (UploadHandler) new UploadHandlerRaw(Encoding.UTF8.GetBytes(json));
         request.downloadHandler = (DownloadHandler) new DownloadHandlerBuffer();
         request.SetRequestHeader("Content-Type", "application/json");
@@ -96,13 +97,15 @@ public class API : MonoBehaviour {
 
     //Path Get
     public List<pathObject> pathsFromServer = new List<pathObject>();
+    public string ServerURL = "https://wgj64-server.herokuapp.com/";
 
     public void RunGetPaths() {
         StartCoroutine(CRGetPaths());
     }
 
     private IEnumerator CRGetPaths() {
-        using (UnityWebRequest www = UnityWebRequest.Get("https://wgj64-server.herokuapp.com/api/paths")) {
+        string url = ServerURL + "api/paths";
+        using (UnityWebRequest www = UnityWebRequest.Get(url)) {
             yield return www.Send();
 
             if (www.isNetworkError || www.isHttpError) {
