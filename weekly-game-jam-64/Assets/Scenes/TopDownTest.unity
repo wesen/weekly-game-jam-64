@@ -670,6 +670,36 @@ Prefab:
       propertyPath: m_Name
       value: player
       objectReference: {fileID: 0}
+    - target: {fileID: 61780662840736368, guid: 6d4beca7da002473eb73cccbdca6519a,
+        type: 2}
+      propertyPath: m_Size.x
+      value: 0.032365028
+      objectReference: {fileID: 0}
+    - target: {fileID: 61780662840736368, guid: 6d4beca7da002473eb73cccbdca6519a,
+        type: 2}
+      propertyPath: m_Size.y
+      value: 0.015020698
+      objectReference: {fileID: 0}
+    - target: {fileID: 61780662840736368, guid: 6d4beca7da002473eb73cccbdca6519a,
+        type: 2}
+      propertyPath: m_Offset.y
+      value: -0.06937756
+      objectReference: {fileID: 0}
+    - target: {fileID: 61780662840736368, guid: 6d4beca7da002473eb73cccbdca6519a,
+        type: 2}
+      propertyPath: m_Offset.x
+      value: -0.009419406
+      objectReference: {fileID: 0}
+    - target: {fileID: 61780662840736368, guid: 6d4beca7da002473eb73cccbdca6519a,
+        type: 2}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 6200000, guid: fcd07a0323e860744888df9b37ea6f6f, type: 2}
+    - target: {fileID: 114833671438888804, guid: 6d4beca7da002473eb73cccbdca6519a,
+        type: 2}
+      propertyPath: Speed
+      value: 0.8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6d4beca7da002473eb73cccbdca6519a, type: 2}
   m_IsPrefabParent: 0
@@ -1511,7 +1541,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 71b1ce3667033734a813527512f545ae, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
@@ -2799,6 +2829,41 @@ MonoBehaviour:
   messagesFromServer: []
   pathsFromServer: []
   ServerURL: https://wgj64-server.herokuapp.com/
+--- !u!58 &2121288858
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2121288854}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.0014247522, y: -0.09684354}
+  serializedVersion: 2
+  m_Radius: 0.07235962
+--- !u!50 &2121288862
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2121288854}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 6200000, guid: fcd07a0323e860744888df9b37ea6f6f, type: 2}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
 --- !u!1 &2139220889
 GameObject:
   m_ObjectHideFlags: 0
