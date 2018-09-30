@@ -661,14 +661,19 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 114697193450851850, guid: 6d4beca7da002473eb73cccbdca6519a,
-        type: 2}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1752042927416548, guid: 6d4beca7da002473eb73cccbdca6519a, type: 2}
       propertyPath: m_Name
       value: player
+      objectReference: {fileID: 0}
+    - target: {fileID: 114833671438888804, guid: 6d4beca7da002473eb73cccbdca6519a,
+        type: 2}
+      propertyPath: Speed
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 212902937427974096, guid: 6d4beca7da002473eb73cccbdca6519a,
+        type: 2}
+      propertyPath: m_SortingOrder
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6d4beca7da002473eb73cccbdca6519a, type: 2}
@@ -2780,25 +2785,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!1 &2121288854 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1752042927416548, guid: 6d4beca7da002473eb73cccbdca6519a,
-    type: 2}
-  m_PrefabInternal: {fileID: 1236112751}
---- !u!114 &2121288855
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2121288854}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d61fa88d80cfab2408a3f42360f82c19, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  messagesFromServer: []
-  pathsFromServer: []
-  ServerURL: https://wgj64-server.herokuapp.com/
 --- !u!1 &2139220889
 GameObject:
   m_ObjectHideFlags: 0
