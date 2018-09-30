@@ -38,41 +38,40 @@ public class Player : MonoBehaviour {
     string prevPos = "";
     Stack posStack = new Stack();
 
-    void OnGUI()
-    {
-        if (isOpen)
-        {
+    void OnGUI() {
+        if (isOpen) {
             if (GUI.Button(new Rect(10, 10, 100, 50), transform.position.ToString())) //Display and use the Yes button
             {
                 Debug.Log("Yes");
                 isOpen = false;
             }
+
             if (GUI.Button(new Rect(120, 10, 100, 50), "Show Stack in Debug")) //Display and use the Yes button
             {
                 int i = 0;
-                foreach (var pos in posStack)
-                {
+                foreach (var pos in posStack) {
                     Debug.Log(i + ": " + pos);
                 }
             }
+
             if (GUI.Button(new Rect(230, 10, 100, 50), "Send Stack to Server")) //Display and use the Yes button
             {
-                foreach (var pos in posStack)
-                {
+                foreach (var pos in posStack) {
                     //POST
                 }
             }
         }
-        if (prevPos != transform.position.ToString())
-        {
+
+        if (prevPos != transform.position.ToString()) {
             posStack.Push(prevPos);
             prevPos = transform.position.ToString();
         }
     }
 
-    void OnMouseDown() //Get the mouse click
-    {
-        isOpen = true;   //Set the buttons to appear
+    //Get the mouse click
+    void OnMouseDown() {
+        isOpen = true; //Set the buttons to appear
     }
+
     //End send_player_pos block
 }
