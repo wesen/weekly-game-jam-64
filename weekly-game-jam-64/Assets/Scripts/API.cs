@@ -9,6 +9,9 @@ using Newtonsoft.Json;
 
 public class API : MonoBehaviour
 {
+
+    public string room_name = "API_Test_Room";
+
     //Message Get
     public List<messageObject> messagesFromServer = new List<messageObject>();
 
@@ -50,7 +53,7 @@ public class API : MonoBehaviour
         Int32 ypos = 32;
 
         string name = "Goldfsh";
-        string room = "TestPlace_" + UnityEngine.Random.Range(0, 1000);
+        string room = room_name;
         string message = "This is another test!";
 
         RunSendMessage(xpos,ypos,name,room,message);
@@ -159,7 +162,7 @@ public class API : MonoBehaviour
         Int32 ypos = 32;
 
         string name = "Goldfsh";
-        string room = "TestPlace_" + UnityEngine.Random.Range(0, 1000);
+        string room = room_name;
 
         ArrayList movement = new ArrayList();
         movement.Add(new int[] { 14, 19 });

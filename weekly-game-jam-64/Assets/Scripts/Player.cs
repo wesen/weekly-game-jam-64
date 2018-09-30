@@ -35,38 +35,43 @@ public class Player : MonoBehaviour {
 
     //This block will send_player_pos json to server
     bool isOpen = false;
-    string prevPos = "";
-    Stack posStack = new Stack();
+    int[] prevPos = new int[1];
+    int[] curPos = new int[1];
+    ArrayList posAL = new ArrayList();
+    public GameObject apiObj;
 
     void OnGUI()
     {
         if (isOpen)
         {
-            if (GUI.Button(new Rect(10, 10, 100, 50), transform.position.ToString())) //Display and use the Yes button
+            if (GUI.Button(new Rect(10, 10, 100, 50), "x:"+ Mathf.RoundToInt(transform.position.x)+", y:"+ Mathf.RoundToInt(transform.position.y))) //Display and use the Yes button
             {
                 Debug.Log("Yes");
                 isOpen = false;
             }
             if (GUI.Button(new Rect(120, 10, 100, 50), "Show Stack in Debug")) //Display and use the Yes button
             {
-                int i = 0;
-                foreach (var pos in posStack)
+                int i = 1;
+                foreach (var pos in posAL)
                 {
                     Debug.Log(i + ": " + pos);
+                    
                 }
             }
             if (GUI.Button(new Rect(230, 10, 100, 50), "Send Stack to Server")) //Display and use the Yes button
             {
-                foreach (var pos in posStack)
+                foreach (var pos in posAL)
                 {
                     //POST
                 }
             }
         }
-        if (prevPos != transform.position.ToString())
+        curPos[0] = Mathf.RoundToInt(transform.position.x);
+        curPos[0] = Mathf.RoundToInt(transform.position.y);
+        if (prevPos != curPos)
         {
-            posStack.Push(prevPos);
-            prevPos = transform.position.ToString();
+            posAL.Add(prevPos);
+            prevPos = curPos;
         }
     }
 
