@@ -6,9 +6,11 @@ using UnityEngine;
 public class Player : MonoBehaviour {
     private Vector3 _moveDelta;
     private BoxCollider2D _boxCollider;
+    private Animator _animator;
 
     void Awake() {
         _boxCollider = GetComponent<BoxCollider2D>();
+        _animator = GetComponent<Animator>();
     }
 
     void FixedUpdate() {
@@ -30,6 +32,10 @@ public class Player : MonoBehaviour {
                 LayerMask.GetMask("Collision", "Actors"));
         if (hit.collider == null) {
             transform.Translate(_moveDelta * Time.deltaTime);
+        }
+
+        if (_moveDelta.x > 0) {
+            _animator.animation = 
         }
     }
 
