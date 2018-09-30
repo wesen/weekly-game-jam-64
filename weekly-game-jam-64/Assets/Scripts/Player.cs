@@ -6,32 +6,28 @@ using UnityEngine;
 public class Player : MonoBehaviour {
     private Vector3 _moveDelta;
     private BoxCollider2D _boxCollider;
+    private Animator _animator;
+
+    public float Speed = 0.5f;
 
     void Awake() {
         _boxCollider = GetComponent<BoxCollider2D>();
+        _animator = GetComponent<Animator>();
     }
 
     void FixedUpdate() {
         float x = Input.GetAxisRaw("Horizontal");
         float y = Input.GetAxisRaw("Vertical");
 
-        _moveDelta = new Vector3(x, y, 0);
-
-        // control sprite direction
-        if (_moveDelta.x > 0) {
-            transform.localScale = Vector3.one;
-        } else if (_moveDelta.x < 0) {
-            transform.localScale = new Vector3(-1, 1, 1);
-        }
+        _moveDelta = new Vector3(x, y, 0) * Time.deltaTime * Speed;
 
         RaycastHit2D hit =
             Physics2D.BoxCast(transform.position, _boxCollider.size, 0, _moveDelta,
-                _moveDelta.magnitude * Time.deltaTime,
+                _moveDelta.magnitude,
                 LayerMask.GetMask("Collision", "Actors"));
         if (hit.collider == null) {
-            transform.Translate(_moveDelta * Time.deltaTime);
+            transform.Translate(_moveDelta);
         }
-    }
 
     //This block will send_player_pos json to server
     bool isOpen = false;
@@ -72,12 +68,16 @@ public class Player : MonoBehaviour {
         {
             posAL.Add(prevPos);
             prevPos = curPos;
+        if (_moveDelta.x > 0) {
+            _animator.Play("player_walking_right");
+        } else if (_moveDelta.x < 0) {
+            _animator.Play("player_walking_left");
+        } else if (_moveDelta.y < 0) {
+            _animator.Play("player_walking_frontal");
+        } else if (_moveDelta.y > 0) {
+            _animator.Play("player_walking_up");
+        } else {
+            _animator.Play("player_idle_frontal");
         }
     }
-
-    void OnMouseDown() //Get the mouse click
-    {
-        isOpen = true;   //Set the buttons to appear
-    }
-    //End send_player_pos block
 }
