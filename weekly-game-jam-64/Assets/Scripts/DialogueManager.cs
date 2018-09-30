@@ -9,10 +9,25 @@ public class DialogueManager : MonoBehaviour {
     public Text ContinueMessage;
 
     public bool IsDialogActive = false;
-    
+
+    void Awaake() {
+        if (IsDialogActive) {
+            DialogueBox.SetActive(true);
+        } else {
+            DialogueBox.SetActive(false);
+        }
+    }
+
     void Update() {
         if (IsDialogActive && Input.GetButtonDown("Submit")) {
-            IsDialogActive = true;
+            DialogueBox.SetActive(false);
+            IsDialogActive = false;
         }
+    }
+
+    public void ShowBox(string text) {
+        Message.text = text;
+        DialogueBox.SetActive(true);
+        IsDialogActive = true;
     }
 }
