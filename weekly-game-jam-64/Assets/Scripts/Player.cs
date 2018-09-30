@@ -11,7 +11,6 @@ public class Player : MonoBehaviour {
     public float Speed = 0.5f;
 
     void Awake(){
-        _boxCollider = GetComponent<BoxCollider2D>();
         _animator = GetComponent<Animator>();
         _animator.speed = 2;
     }
@@ -21,14 +20,7 @@ public class Player : MonoBehaviour {
         float y = Input.GetAxisRaw("Vertical");
 
         _moveDelta = new Vector3(x, y, 0) * Time.deltaTime * Speed;
-
-        RaycastHit2D hit =
-            Physics2D.BoxCast(transform.position, _boxCollider.size, 0, _moveDelta,
-                _moveDelta.magnitude,
-                LayerMask.GetMask("Collision", "Actors"));
-        //if (hit.collider == null) {
-            transform.Translate(_moveDelta);
-       // }
+        transform.Translate(_moveDelta);
 
         if (_moveDelta.x > 0) {
             _animator.Play("player_walking_right");
