@@ -7,15 +7,7 @@ using UnityEngine.Networking;
 using Newtonsoft.Json;
 
 
-<<<<<<< HEAD:weekly-game-jam-64/Assets/Scripts/API.cs
-public class API : MonoBehaviour
-{
-
-    public string room_name = "API_Test_Room";
-
-=======
 public class APIClient : MonoBehaviour {
->>>>>>> upstream/master:weekly-game-jam-64/Assets/Scripts/APIClient.cs
     //Message Get
     public List<messageObject> messagesFromServer = new List<messageObject>();
 
@@ -50,7 +42,7 @@ public class APIClient : MonoBehaviour {
         Int32 ypos = 32;
 
         string name = "Goldfsh";
-        string room = room_name;
+        string room = "TestPlace_" + UnityEngine.Random.Range(0, 1000);
         string message = "This is another test!";
 
         RunSendMessage(xpos, ypos, name, room, message);
@@ -138,7 +130,7 @@ public class APIClient : MonoBehaviour {
         Int32 ypos = 32;
 
         string name = "Goldfsh";
-        string room = room_name;
+        string room = "TestPlace_" + UnityEngine.Random.Range(0, 1000);
 
         ArrayList movement = new ArrayList();
         movement.Add(new int[] {14, 19});
