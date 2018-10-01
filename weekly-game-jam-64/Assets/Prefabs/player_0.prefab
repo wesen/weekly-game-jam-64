@@ -21,10 +21,11 @@ GameObject:
   - component: {fileID: 4050294955164510}
   - component: {fileID: 212902937427974096}
   - component: {fileID: 114833671438888804}
-  - component: {fileID: 61780662840736368}
   - component: {fileID: 95137544454202716}
   - component: {fileID: 114697193450851850}
   - component: {fileID: 114755852073596108}
+  - component: {fileID: 50789872589644254}
+  - component: {fileID: 58610228443786616}
   m_Layer: 10
   m_Name: player_0
   m_TagString: Untagged
@@ -45,31 +46,41 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &61780662840736368
-BoxCollider2D:
+--- !u!50 &50789872589644254
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1752042927416548}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 6200000, guid: fcd07a0323e860744888df9b37ea6f6f, type: 2}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
+--- !u!58 &58610228443786616
+CircleCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1752042927416548}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: fcd07a0323e860744888df9b37ea6f6f, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.0051864237, y: -0.099499375}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.32, y: 0.32}
-    newSize: {x: 0.16, y: 0.16}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
+  m_Offset: {x: 0.0038499609, y: -0.10628328}
   serializedVersion: 2
-  m_Size: {x: 0.1344445, y: 0.107675076}
-  m_EdgeRadius: 0
+  m_Radius: 0.06631771
 --- !u!95 &95137544454202716
 Animator:
   serializedVersion: 3
@@ -161,7 +172,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 3
+  m_SortingOrder: 4
   m_Sprite: {fileID: 21300000, guid: 992d98e15ce5d7d41b4b98425a6d863b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
