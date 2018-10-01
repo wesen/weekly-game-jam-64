@@ -20,10 +20,10 @@ GameObject:
   m_Component:
   - component: {fileID: 4050294955164510}
   - component: {fileID: 212902937427974096}
-  - component: {fileID: 114833671438888804}
   - component: {fileID: 61780662840736368}
   - component: {fileID: 95137544454202716}
   - component: {fileID: 114697193450851850}
+  - component: {fileID: 114314078885674476}
   m_Layer: 10
   m_Name: player_ghost
   m_TagString: Untagged
@@ -38,7 +38,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1752042927416548}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -0.547, y: -0.205, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -87,6 +87,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &114314078885674476
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1752042927416548}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70267941c6e97bc4592c334d13aea7d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Speed: 0
+  ServerURL: https://wgj64-server.herokuapp.com/
 --- !u!114 &114697193450851850
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -100,18 +113,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EntryInterval_s: 0.5
   LogInterval_s: 3
---- !u!114 &114833671438888804
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1752042927416548}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6b3ea0c0b67d01241ba72f4a44aa366e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Speed: 0.3
 --- !u!212 &212902937427974096
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -148,7 +149,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 992d98e15ce5d7d41b4b98425a6d863b, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 0.51565224, b: 0.9622642, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
