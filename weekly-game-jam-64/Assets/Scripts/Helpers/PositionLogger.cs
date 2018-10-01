@@ -42,9 +42,9 @@ public class PositionLogger : MonoBehaviour {
 
         if ((Time.time - _lastLogTime_s) > LogInterval_s) {
             PositionEntry[] entries = _entries.ToArray();
-            foreach (PositionEntry entry in entries) {
-                Debug.Log("pos " + entry.Position + " at " + entry.Time_s);
-            }
+//            foreach (PositionEntry entry in entries) {
+//                Debug.Log("pos " + entry.Position + " at " + entry.Time_s);
+//            }
 
             _lastLogTime_s = Time.time;
             
