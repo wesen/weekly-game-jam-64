@@ -13,6 +13,7 @@ public class Player : MonoBehaviour {
     public float SmokeInterval_s = 2.0f;
     private float _timeSinceSmoke = 0.0f;
     public Transform SmokeAnimation;
+    public bool isMoving = true;
 
     void Awake() {
         _animator = GetComponent<Animator>();
@@ -27,22 +28,24 @@ public class Player : MonoBehaviour {
         _moveDelta = new Vector3(x, y, 0) * Time.deltaTime * Speed;
         transform.Translate(_moveDelta);
 
-        bool isMoving = true;
-
         float angle = 0.0f;
         
         if (_moveDelta.x > 0) {
             _animator.Play("player_walking_right");
             angle = 90;
+            isMoving = true;
         } else if (_moveDelta.x < 0) {
             _animator.Play("player_walking_left");
             angle = -90;
+            isMoving = true;
         } else if (_moveDelta.y < 0) {
             angle = 0;
             _animator.Play("player_walking_frontal");
+            isMoving = true;
         } else if (_moveDelta.y > 0) {
             angle = 180;
             _animator.Play("player_walking_up");
+            isMoving = true;
         } else {
             _animator.Play("player_idle_frontal");
             isMoving = false;
