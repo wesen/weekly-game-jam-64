@@ -19,7 +19,7 @@ public class Ghost : MonoBehaviour {
     void Update()
     {
         if (nextPos.x == 999 && nextPos.y == 999 && pathsloaded) {
-            nextPos.x = pathsFromServer[1].movement[onStep][0];
+            //nextPos.x = pathsFromServer[1].movement[onStep][0];
         }
         else if (transform.position != nextPos){
             StartCoroutine(Move(nextPos));
