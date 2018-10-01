@@ -3486,6 +3486,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   messagesFromServer: []
   pathsFromServer: []
+  ServerURL: https://wgj64-server.herokuapp.com/
 --- !u!1 &2067723360
 GameObject:
   m_ObjectHideFlags: 0
