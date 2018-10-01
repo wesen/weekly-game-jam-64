@@ -14,18 +14,17 @@ public class FloatingText : MonoBehaviour {
 
     public void ShowText(string text) {
         _textMesh.text = text;
-        
-        LTDescr tween = LeanTween.color(_textMesh.gameObject, Color.white, 1.0f)
+
+        LeanTween.color(_textMesh.gameObject, Color.white, 1.0f)
             .setEase(LeanTweenType.easeInOutExpo)
             .setOnComplete(() => {
-                _isVisible = true; 
+                _isVisible = true;
                 HideText();
-                
             });
     }
 
     public void HideText() {
-        LTDescr tween = LeanTween.color(_textMesh.gameObject, Color.clear, 1.0f)
+        LeanTween.color(_textMesh.gameObject, Color.clear, 1.0f)
             .setEase(LeanTweenType.easeInOutExpo)
             .setOnComplete(() => { _isVisible = false; });
     }

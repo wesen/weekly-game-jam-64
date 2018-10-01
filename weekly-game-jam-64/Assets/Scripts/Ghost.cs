@@ -15,7 +15,6 @@ public class Ghost : MonoBehaviour {
         RunGetPaths();
     }
 
-    void Update()
     void Update() {
 //        if (nextPos.x == 999 && nextPos.y == 999 && pathsloaded) {
 ////            nextPos.x = pathsFromServer[1].movement[onStep][0];
