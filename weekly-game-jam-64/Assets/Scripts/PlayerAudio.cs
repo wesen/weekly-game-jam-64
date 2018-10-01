@@ -29,7 +29,7 @@ public class PlayerAudio : MonoBehaviour {
                 waitStep = 0;
             }
             else{
-                waitStep += 1;
+                waitStep += Mathf.RoundToInt(pScript.Speed);
             }
         }
         else {
