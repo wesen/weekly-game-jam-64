@@ -85,7 +85,7 @@ public class Player : MonoBehaviour {
         if (isMoving) {
             if (waitStep >= 10 * freqOfSteps) {
                 int rnd = UnityEngine.Random.Range(0, footsteps.Length - 1);
-                Debug.Log("play sound " + rnd);
+                //Debug.Log("play sound " + rnd);
                 footsteps[rnd].Play();
                 waitStep = 0;
                 Vector3 feetPosition = transform.position
