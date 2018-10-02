@@ -9,6 +9,8 @@ public class DialogueManager : MonoBehaviour {
     public TextMeshProUGUI nameText;
     public TextMeshProUGUI dialogueText;
     public Animator animator;
+    private bool crRunning = false;
+    private Coroutine cr;
 
 
 
@@ -26,7 +28,7 @@ public class DialogueManager : MonoBehaviour {
 
         sentences.Clear();
 
-        foreach (string sentence in dialogue.sentances) {
+        foreach (string sentence in dialogue.sentences) {
             sentences.Enqueue(sentence);
         }
 
@@ -41,8 +43,11 @@ public class DialogueManager : MonoBehaviour {
         }
 
         string sentence = sentences.Dequeue();
-        StopAllCoroutines();
-        StartCoroutine(TypeSentence(sentence));
+        if (crRunning) {
+            StopCoroutine(cr);
+        }
+        crRunning = true;
+        cr = StartCoroutine(TypeSentence(sentence));
     }
 
     IEnumerator TypeSentence(string sentence){
@@ -51,10 +56,11 @@ public class DialogueManager : MonoBehaviour {
             dialogueText.text += letter;
             yield return null;
         }
+
+        crRunning = false;
     }
 
     void EndDialogue() {
-        Debug.Log("End of conversation.");
         animator.SetBool("IsOpen", false);
     }
 }

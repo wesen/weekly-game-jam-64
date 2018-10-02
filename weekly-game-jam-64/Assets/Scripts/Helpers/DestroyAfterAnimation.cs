@@ -17,6 +17,6 @@ public class DestroyAfterAnimation : MonoBehaviour {
     }
 
     void OnDestroy() {
-        Debug.Log("Destroyed");
+        //Debug.Log("Destroyed");
     }
 }
