@@ -13,7 +13,6 @@ public class Interactable : MonoBehaviour {
     
     void OnTriggerEnter2D(Collider2D collider) {
         if (collider.name == "player") {
-            _DialogueManager.ShowBox("Some stupid description");
             _floatingText.ShowText("BEAUTIFUL");
         }
     }
