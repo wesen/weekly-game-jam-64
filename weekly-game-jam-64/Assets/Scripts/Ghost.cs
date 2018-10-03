@@ -46,8 +46,6 @@ public class Ghost : MonoBehaviour {
             }
         }
 
-        Debug.Log("Finished moving");
-
         Destroy(gameObject);
     }
 }

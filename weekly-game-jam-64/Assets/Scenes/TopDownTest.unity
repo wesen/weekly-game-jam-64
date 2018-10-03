@@ -1195,7 +1195,7 @@ Prefab:
     - target: {fileID: 114396233666794770, guid: 6d4beca7da002473eb73cccbdca6519a,
         type: 2}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 20759081375214588, guid: 6d4beca7da002473eb73cccbdca6519a,
         type: 2}
@@ -2084,6 +2084,7 @@ GameObject:
   - component: {fileID: 1728354178}
   - component: {fileID: 1728354180}
   - component: {fileID: 1728354179}
+  - component: {fileID: 1728354181}
   m_Layer: 0
   m_Name: Tilemap
   m_TagString: Untagged
@@ -4129,6 +4130,17 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!114 &1728354181
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1728354177}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4b9774a624140e438404298500ff99a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1755693588 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4378919047250942, guid: f9daea69befdf444d86157923fca6729,
