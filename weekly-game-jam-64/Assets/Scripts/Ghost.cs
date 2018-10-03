@@ -2,7 +2,10 @@
 using UnityEngine;
 
 public class Ghost : MonoBehaviour {
+    private Animator _animator;
+
     private void Awake() {
+        _animator = GetComponent<Animator>();
     }
 
     public void ExecuteMoves(GhostInformation information) {
@@ -19,7 +22,23 @@ public class Ghost : MonoBehaviour {
             while (idx < _information.Movement.Length) {
                 Debug.Log("Moving from " + start + " to " + target);
                 for (float t = 0.0f; t < 0.5f; t += Time.deltaTime) {
-                    transform.position = Vector2.Lerp(start, target, t * 2);
+                    Vector2 prevPosition = transform.position;
+                    Vector2 newPosition = Vector2.Lerp(start, target, t * 2);
+                    Vector2 _moveDelta = newPosition - prevPosition;
+
+                    if (_moveDelta.x > 0) {
+                        _animator.Play("player_walking_right");
+                    } else if (_moveDelta.x < 0) {
+                        _animator.Play("player_walking_left");
+                    } else if (_moveDelta.y < 0) {
+                        _animator.Play("player_walking_frontal");
+                    } else if (_moveDelta.y > 0) {
+                        _animator.Play("player_walking_up");
+                    } else {
+                        _animator.Play("player_idle_frontal");
+                    }
+
+                    transform.position = newPosition;
                     yield return null;
                 }
 
@@ -32,5 +51,4 @@ public class Ghost : MonoBehaviour {
 
         Destroy(gameObject);
     }
-
 }
