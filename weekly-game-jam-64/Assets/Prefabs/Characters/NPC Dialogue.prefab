@@ -130,6 +130,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogue:
     name: Marty the Dialogue NPC
+    BackgroundImage: {fileID: 21300000, guid: e913dc98b83a6504fa161fc5aaaed7b8, type: 3}
     sentences:
     - "Hello! I'm Marty. I'm here to test the dialogue system.\r"
     - "It's been a pain in the butt to get working...\r"
@@ -150,7 +151,7 @@ MonoBehaviour:
   player: {fileID: 0}
   bubble: {fileID: 1703221045703250}
   dialogueTrig: {fileID: 114631248753036196}
-  talkResetDelay: 1000
+  talkResetDelay: -1
 --- !u!212 &212027677364319888
 SpriteRenderer:
   m_ObjectHideFlags: 1

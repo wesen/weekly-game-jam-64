@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4088674232376134}
   - component: {fileID: 212751717847128970}
   - component: {fileID: 114017167379996552}
+  - component: {fileID: 114569065072665234}
   m_Layer: 0
   m_Name: message
   m_TagString: Untagged
@@ -52,6 +53,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0f8ce8656c5f474581e4940016f86fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114569065072665234
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1444180788732292}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34e843c885e5be341970b5b3b48bc341, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+    name: 
+    BackgroundImage: {fileID: 21300000, guid: 8a50d494852a2864daa0f18372313c08, type: 3}
+    sentences: []
 --- !u!212 &212751717847128970
 SpriteRenderer:
   m_ObjectHideFlags: 1
