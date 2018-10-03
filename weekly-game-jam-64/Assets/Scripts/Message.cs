@@ -6,13 +6,15 @@ public class Message : MonoBehaviour {
     private DialogueTrigger _dialogueTrigger;
     private Transform _player;
 
-    public void Start() {
-        _player = GameObject.FindGameObjectWithTag("Player").transform;
+    public void Awake() {
         _dialogueTrigger = GetComponent<DialogueTrigger>();
     }
 
+    public void Start() {
+        _player = GameObject.FindGameObjectWithTag("Player").transform;
+    }
+
     public void FillFromMessage(GhostMessage message) {
-        _dialogueTrigger.dialogue.name = message.Name;
         _dialogueTrigger.dialogue.sentences = message.Message.Split('\n');
     }
 
