@@ -139,8 +139,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70267941c6e97bc4592c334d13aea7d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Speed: 0
-  ServerURL: https://wgj64-server.herokuapp.com/
 --- !u!114 &114697193450851850
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -235,7 +233,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: 21300000, guid: 992d98e15ce5d7d41b4b98425a6d863b, type: 3}
+  m_Sprite: {fileID: 21300010, guid: 4c0e94f1d3d07df4e981c75d16f336d5, type: 3}
   m_Color: {r: 0, g: 0.51565224, b: 0.9622642, a: 1}
   m_FlipX: 0
   m_FlipY: 0

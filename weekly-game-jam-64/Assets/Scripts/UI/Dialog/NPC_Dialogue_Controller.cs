@@ -6,8 +6,8 @@ public class NPC_Dialogue_Controller : MonoBehaviour {
     public Transform player;
     public GameObject bubble;
     public DialogueTrigger dialogueTrig;
-    private bool hasTalked;
-    private int timeSinceTalk;
+    private bool hasTalked = false;
+    private int timeSinceTalk = 0;
     public int talkResetDelay = 1000;
 
     private void Start()

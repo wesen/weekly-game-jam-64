@@ -75,7 +75,7 @@ public class Player : MonoBehaviour {
             framesIdle = 0;
         } else {
             _animator.Play("player_idle_frontal");
-            isMoving = false;            
+            isMoving = false;
             framesIdle += 1;
             isDashing = false;
             fuDirection = 0;
@@ -93,89 +93,50 @@ public class Player : MonoBehaviour {
 
                 Vector3 smokePosition = feetPosition - _moveDelta * 5.0f;
                 Instantiate(SmokeAnimation, smokePosition, Quaternion.Euler(0, 0, angle));
-            }
-            else {
+            } else {
                 waitStep += Mathf.RoundToInt(Speed);
             }
-        }
-        else {
+        } else {
             waitStep = 0;
         }
 
 
         //Fixed update Dash code
-        if (isDashing)
-        {
+        if (isDashing) {
             Speed = origSpeed * 2;
             dashI += 1;
-        }
-        else
-        {
+        } else {
             Speed = origSpeed;
             dashI = 0;
         }
-
-
-        //Smoke Animation
-        //if (isMoving) {
-        //    _timeSinceSmoke += Time.deltaTime;
-
-        //    if (_timeSinceSmoke > SmokeInterval_s) {
-        //        _timeSinceSmoke = 0.0f;
-        //        Vector3 feetPosition = transform.position
-        //                               - new Vector3(0, _renderer.bounds.size.y / 2.0f, 0);
-
-        //        Vector3 smokePosition = feetPosition - _moveDelta * 5.0f;
-        //        // SmokeAnimation.GetComponent<SpriteRenderer>().bounds.size / 2.0f;
-        //        Instantiate(SmokeAnimation, smokePosition, Quaternion.Euler(0, 0, angle));
-        //    }
-        //} else {
-        //    _timeSinceSmoke = 0.0f;
-        //}
     }
 
     private void Update() {
         //Dash Logic
 
-        if (!isMoving && framesIdle > 10)
-        {
+        if (!isMoving && framesIdle > 10) {
             isDashing = false;
             direction = 0;
-        }
-        else
-        {
-            if (dashI >= dashTime)
-            {
+        } else {
+            if (dashI >= dashTime) {
                 isDashing = false;
-            }
-            else if (direction == 1 && (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W)) && isDashing == false)
-            {
+            } else if (direction == 1 && (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W)) &&
+                       isDashing == false) {
                 isDashing = true;
-            }
-            else if (direction == 2 && (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D)) && isDashing == false)
-            {
+            } else if (direction == 2 && (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D)) &&
+                       isDashing == false) {
                 isDashing = true;
-            }
-            else if (direction == 3 && (Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S)) && isDashing == false)
-            {
+            } else if (direction == 3 && (Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S)) &&
+                       isDashing == false) {
                 isDashing = true;
-            }
-            else if (direction == 4 && (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A)) && isDashing == false)
-            {
+            } else if (direction == 4 && (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A)) &&
+                       isDashing == false) {
                 isDashing = true;
             }
         }
 
-        if (fuDirection > 0) { direction = fuDirection; }
-    }
-
-    //is this still being used?
-    private void OnDrawGizmos() {
-        if (_boxCollider != null) {
-            Gizmos.color = Color.red;
-            Vector3 offset = new Vector3(_boxCollider.offset.x, _boxCollider.offset.y, 0);
-            Gizmos.DrawWireCube(_boxCollider.transform.position + offset,
-                _boxCollider.size);
+        if (fuDirection > 0) {
+            direction = fuDirection;
         }
     }
 }
