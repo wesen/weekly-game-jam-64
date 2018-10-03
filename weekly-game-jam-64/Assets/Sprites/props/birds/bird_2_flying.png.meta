@@ -1,13 +1,9 @@
 fileFormatVersion: 2
-guid: 1ae3e9144a4e6e94c83d9c37756b3060
+guid: ad11387d543f8ff40b532ceb85aff3cb
 TextureImporter:
   fileIDToRecycleName:
-    21300000: bird_3_idle_0
-    21300002: bird_3_idle_1
-    21300004: bird_3_idle_2
-    21300006: bird_3_idle_3
-    21300008: bird_3_idle_4
-    21300010: bird_3_idle_5
+    21300000: bird_2_flying_0
+    21300002: bird_2_flying_1
   externalObjects: {}
   serializedVersion: 5
   mipmaps:
@@ -99,67 +95,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: bird_3_idle_0
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 16
-        width: 15
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e8c1ce5a0f51b974bb5c6547dde376c1
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: bird_3_idle_1
-      rect:
-        serializedVersion: 2
-        x: 15
-        y: 16
-        width: 15
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c784204880919d24d8fe4607a960a39a
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: bird_3_idle_2
-      rect:
-        serializedVersion: 2
-        x: 30
-        y: 16
-        width: 15
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: eecb50cf7f51c0743ac5de2476aea72f
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: bird_3_idle_3
+      name: bird_2_flying_0
       rect:
         serializedVersion: 2
         x: 0
@@ -173,13 +109,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 117f155da776a0c448dc6c414690354d
+      spriteID: a7eeea9de924cea428beb9225b1740db
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bird_3_idle_4
+      name: bird_2_flying_1
       rect:
         serializedVersion: 2
         x: 15
@@ -193,27 +129,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 36aefd90e10d57440bb52a901b9bff52
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: bird_3_idle_5
-      rect:
-        serializedVersion: 2
-        x: 30
-        y: 0
-        width: 15
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ad4dba65cecff604a977abfa6bb3ecc1
+      spriteID: e266bd6f1944d0c48967fbc6cfa6febd
       vertices: []
       indices: 
       edges: []
@@ -221,7 +137,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: b82f31f8635369248af0eabb7c19bd94
+    spriteID: 76dd25b228f063f4bba90d141da82681
     vertices: []
     indices: 
     edges: []
