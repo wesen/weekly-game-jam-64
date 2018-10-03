@@ -33,7 +33,6 @@ public class PositionLogger : MonoBehaviour {
 
     void _addCurrentPosition() {
         _entries.Add(new PositionEntry(transform.position));
-        Debug.Log("Added entries " + _entries.Count + " " + _entries[_entries.Count-1].Position + " at position " + transform.position);
         _lastEntryTime_s = Time.time;
     }
 
@@ -66,8 +65,6 @@ public class PositionLogger : MonoBehaviour {
                     m_ApiClient.RunSendPath(0, 0, "foobar",
                         SceneManager.GetActiveScene().name,
                         movements, interactions);
-                } else {
-                    Debug.Log("Skipping saving because static");
                 }
             }
 

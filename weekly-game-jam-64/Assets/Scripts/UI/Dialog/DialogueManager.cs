@@ -6,25 +6,28 @@ using TMPro;
 
 public class DialogueManager : MonoBehaviour {
 
-    public TextMeshProUGUI nameText;
-    public TextMeshProUGUI dialogueText;
+    public Text dialogueText;
     public Animator animator;
     private bool crRunning = false;
     private Coroutine cr;
 
 
+    public static DialogueManager Instance = null;
 
     private Queue<string> sentences;
 
 	// Use this for initialization
 	void Start () {
-        sentences = new Queue<string>();
+	    if (DialogueManager.Instance == null) {
+	        DialogueManager.Instance = this;
+            sentences = new Queue<string>();
+	    } else {
+	        Destroy(gameObject);
+	    }
 	}
 
     public void StartDialogue(Dialogue dialogue) {
         animator.SetBool("IsOpen", true);
-
-        nameText.text = dialogue.name;
 
         sentences.Clear();
 
@@ -43,7 +46,7 @@ public class DialogueManager : MonoBehaviour {
         }
 
         string sentence = sentences.Dequeue();
-        if (crRunning) {
+        if (crRunning){
             StopCoroutine(cr);
         }
         crRunning = true;

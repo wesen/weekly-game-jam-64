@@ -20,7 +20,6 @@ public class Ghost : MonoBehaviour {
             transform.position = start;
 
             while (idx < _information.Movement.Length) {
-                Debug.Log("Moving from " + start + " to " + target);
                 for (float t = 0.0f; t < 0.5f; t += Time.deltaTime) {
                     Vector2 prevPosition = transform.position;
                     Vector2 newPosition = Vector2.Lerp(start, target, t * 2);
