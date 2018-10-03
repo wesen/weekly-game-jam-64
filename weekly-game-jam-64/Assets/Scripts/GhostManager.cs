@@ -5,31 +5,43 @@ using UnityEngine;
 using UnityEngine.Networking;
 using Newtonsoft.Json;
 using System.Linq;
+using Random = UnityEngine.Random;
 
 public class GhostManager : MonoBehaviour {
     public static GhostManager Instance;
     public Ghost GhostPrefab;
-    
+    private GhostInformation[] _informations;
+    public float AverageInterval_s = 2.0f;
+
     public string ServerURL = "https://wgj64-server.herokuapp.com/";
 
     private void Awake() {
         if (Instance == null) {
             Instance = this;
         }
-        _fetchPathsFromServer();
+
+        StartCoroutine(CR_GetPaths());
+        StartCoroutine(CR_PlaybackGhosts());
     }
 
     private void Update() {
         if (Input.GetKeyDown(KeyCode.R)) {
-            _fetchPathsFromServer();
+            StartCoroutine(CR_GetPaths());
         }
     }
-    
-    private void _fetchPathsFromServer() {
-        StartCoroutine(CRGetPaths());
+
+    private IEnumerator CR_PlaybackGhosts() {
+        while (true) {
+            yield return new WaitForSeconds(Random.Range(AverageInterval_s * 0.5f, AverageInterval_s * 1.5f));
+            if (_informations.Length > 0) {
+                GhostInformation ghostInformation = _informations[Random.Range(0, _informations.Length - 1)];
+                Ghost ghost = Instantiate(GhostPrefab, transform.position, Quaternion.identity);
+                ghost.ExecuteMoves(ghostInformation);
+            }
+        }
     }
-    
-    private IEnumerator CRGetPaths() {
+
+    private IEnumerator CR_GetPaths() {
         string url = ServerURL + "api/paths";
         using (UnityWebRequest www = UnityWebRequest.Get(url)) {
             yield return www.Send();
@@ -39,16 +51,9 @@ public class GhostManager : MonoBehaviour {
             } else {
                 string data1 = www.downloadHandler.text;
                 var pathsFromServer = JsonConvert.DeserializeObject<List<PathObject>>(data1);
-                List<GhostInformation> informations  =
-                    pathsFromServer.Select(pathObject => GhostInformation.FromPathObject(pathObject)).ToList();
+                _informations =
+                    pathsFromServer.Select(pathObject => GhostInformation.FromPathObject(pathObject)).ToArray();
                 Debug.Log("Got path informations");
-                
-                foreach (GhostInformation ghostInformation in informations) {
-                    Ghost ghost = Instantiate(GhostPrefab, transform.position, Quaternion.identity);
-                    ghost.ExecuteMoves(ghostInformation);
-
-
-                }
             }
         }
     }
