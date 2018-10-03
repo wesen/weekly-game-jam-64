@@ -130,16 +130,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogue:
     name: Marty the Test NPC
-    sentances:
-    - Wayfarers palo santo meh, banjo art party cronut williamsburg poutine gentrify
-      swag bespoke fashion axe lo-fi vegan. VHS irony kombucha, la croix butcher freegan
-      echo park shabby chic etsy woke next level jean shorts swag listicle.
-    - Truffaut single-origin coffee wayfarers, dreamcatcher adaptogen sriracha XOXO
-      vice chia affogato you probably haven't heard of them kickstarter iceland. Edison
-      bulb authentic lomo migas prism tumeric meh.
-    - Tacos pickled mumblecore mlkshk roof party. Post-ironic prism +1, mlkshk typewriter
-      beard craft beer thundercats cronut meggings gentrify keffiyeh echo park. Lyft
-      man bun poke chicharrones XOXO normcore.
+    sentences: []
 --- !u!114 &114534035549988070
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -153,7 +144,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   bubble: {fileID: 1149749636376336}
-  dialogTrig: {fileID: 114079461050209890}
+  dialogueTrig: {fileID: 0}
+  talkResetDelay: 1000
 --- !u!212 &212783732972206240
 SpriteRenderer:
   m_ObjectHideFlags: 1
