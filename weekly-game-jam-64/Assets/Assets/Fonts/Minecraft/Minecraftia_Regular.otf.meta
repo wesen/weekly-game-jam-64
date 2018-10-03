@@ -3,15 +3,17 @@ guid: 60bf68cf24a0b9843a10c80969eef40d
 TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
-  fontSize: 16
-  forceTextureCase: -2
+  fontSize: 180
+  forceTextureCase: -1
   characterSpacing: 0
   characterPadding: 1
   includeFontData: 1
   fontName: Minecraft
   fontNames:
   - Minecraft
-  fallbackFontReferences: []
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 8a5e728429bebcb42be6bf5da123f0b2, type: 3}
+  - {fileID: 12800000, guid: a4f9165e7df5cd640887c9174f5720ec, type: 3}
   customCharacters: 
   fontRenderingMode: 0
   ascentCalculationMode: 1
