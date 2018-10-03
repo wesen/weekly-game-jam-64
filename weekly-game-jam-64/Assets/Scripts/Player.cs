@@ -26,6 +26,15 @@ public class Player : MonoBehaviour {
     private int waitStep = 0;
     AudioSource[] footsteps;
 
+    enum State {
+        IDLE,
+        MOVING,
+        SHOOTING,
+        TYPING
+    };
+
+    private State _state = State.IDLE;
+
     void Awake() {
         _animator = GetComponent<Animator>();
         _renderer = GetComponent<SpriteRenderer>();
@@ -40,6 +49,54 @@ public class Player : MonoBehaviour {
     }
 
     void FixedUpdate() {
+        switch (_state) {
+            case State.IDLE:
+                if (Input.GetKeyDown(KeyCode.Space)) {
+                    _on_startTyping();
+                } else {
+                    _handleMovement();
+                }
+
+                break;
+
+            case State.MOVING:
+            case State.SHOOTING:
+                _handleMovement();
+                break;
+
+            case State.TYPING:
+                _handleTyping();
+                break;
+        }
+    }
+
+    private void _on_startTyping() {
+        _animator.Play("player_typing_full");
+        _state = State.TYPING;
+    }
+
+    private void _on_stopTyping() {
+        _state = State.IDLE;
+        _handleMovement();
+    }
+
+    private void _on_startMoving() {
+        _state = State.MOVING;
+    }
+
+    private void _on_stopMoving() {
+        _animator.Play("player_idle_frontal");
+        _state = State.IDLE;
+    }
+
+    private void _handleTyping() {
+        if (Input.GetKeyDown(KeyCode.Space)) {
+            _on_stopTyping();
+        }
+    }
+
+
+    private void _handleMovement() {
         float x = Input.GetAxisRaw("Horizontal");
         float y = Input.GetAxisRaw("Vertical");
 
@@ -81,6 +138,17 @@ public class Player : MonoBehaviour {
             fuDirection = 0;
         }
 
+        if (isMoving) {
+            if (_state == State.IDLE) {
+                _on_startMoving();
+            }
+        } else {
+            if (_state == State.MOVING || _state == State.SHOOTING) {
+                _on_stopMoving();
+            }
+        }
+
+
         //Footsteps + Smoke
         if (isMoving) {
             if (waitStep >= 10 * freqOfSteps) {
@@ -99,7 +167,6 @@ public class Player : MonoBehaviour {
         } else {
             waitStep = 0;
         }
-
 
         //Fixed update Dash code
         if (isDashing) {

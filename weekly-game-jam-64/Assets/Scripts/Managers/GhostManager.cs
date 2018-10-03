@@ -13,15 +13,15 @@ public class GhostManager : MonoBehaviour {
     private GhostInformation[] _informations;
     public float AverageInterval_s = 2.0f;
 
-    public string ServerURL = "https://wgj64-server.herokuapp.com/";
 
     private void Awake() {
         if (Instance == null) {
             Instance = this;
+            StartCoroutine(CR_GetPaths());
+            StartCoroutine(CR_PlaybackGhosts());
+        } else {
+            Destroy(gameObject);
         }
-
-        StartCoroutine(CR_GetPaths());
-        StartCoroutine(CR_PlaybackGhosts());
     }
 
     private void Update() {
@@ -36,13 +36,14 @@ public class GhostManager : MonoBehaviour {
             if (_informations.Length > 0) {
                 GhostInformation ghostInformation = _informations[Random.Range(0, _informations.Length - 1)];
                 Ghost ghost = Instantiate(GhostPrefab, transform.position, Quaternion.identity);
+                ghost.transform.parent = transform;
                 ghost.ExecuteMoves(ghostInformation);
             }
         }
     }
 
-    private IEnumerator CR_GetPaths() {
-        string url = ServerURL + "api/paths";
+    private IEnumerator CR_GetPaths(int count = 50) {
+        string url = APIClient.ServerURL + "api/paths/" + count;
         using (UnityWebRequest www = UnityWebRequest.Get(url)) {
             yield return www.Send();
 

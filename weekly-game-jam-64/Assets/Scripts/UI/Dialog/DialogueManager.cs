@@ -13,12 +13,18 @@ public class DialogueManager : MonoBehaviour {
     private Coroutine cr;
 
 
+    public static DialogueManager Instance = null;
 
     private Queue<string> sentences;
 
 	// Use this for initialization
 	void Start () {
-        sentences = new Queue<string>();
+	    if (DialogueManager.Instance == null) {
+	        DialogueManager.Instance = this;
+            sentences = new Queue<string>();
+	    } else {
+	        Destroy(gameObject);
+	    }
 	}
 
     public void StartDialogue(Dialogue dialogue) {

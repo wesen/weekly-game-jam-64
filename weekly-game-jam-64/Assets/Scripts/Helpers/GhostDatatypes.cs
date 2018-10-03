@@ -48,3 +48,32 @@ public class GhostInformation {
         return information;
     }
 };
+
+[System.Serializable]
+public class MessageObject {
+    public ArrayList position;
+    public string name;
+    public string _id;
+    public string room;
+    public string message;
+    public string createDate;
+}
+
+public class GhostMessage {
+    public Vector2 Position;
+    public string Room;
+    public string Name;
+    public string Message;
+
+    public static GhostMessage FromObject(MessageObject messageObject) {
+        GhostMessage message = new GhostMessage();
+        message.Room = messageObject.room;
+        message.Name = messageObject.name;
+        message.Message = messageObject.message;
+        JArray positionArray = messageObject.position[0] as JArray;
+        message.Position = new Vector2(Convert.ToSingle(messageObject.position[0]),
+            Convert.ToSingle(messageObject.position[1]));
+
+        return message;
+    }
+}
