@@ -149,6 +149,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogue:
     BackgroundImage: {fileID: 21300000, guid: e913dc98b83a6504fa161fc5aaaed7b8, type: 3}
+    name: Marty the Test NPC
     sentences:
     - "Hello! I'm Marty. I'm here to test the dialogue system.\r"
     - "It's been a pain in the butt to get working...\r"
