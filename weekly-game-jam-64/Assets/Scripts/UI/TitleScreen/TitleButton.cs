@@ -5,7 +5,6 @@ using UnityEngine;
 public class TitleButton : MonoBehaviour {
 	public Sprite ActiveSprite;
 	public Sprite InactiveSprite;
-	private bool _isActive = false;
 
 	private SpriteRenderer _renderer;
 

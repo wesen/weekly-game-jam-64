@@ -70,7 +70,6 @@ public class GhostMessage {
         message.Room = messageObject.room;
         message.Name = messageObject.name;
         message.Message = messageObject.message;
-        JArray positionArray = messageObject.position[0] as JArray;
         message.Position = new Vector2(Convert.ToSingle(messageObject.position[0]),
             Convert.ToSingle(messageObject.position[1]));
 
