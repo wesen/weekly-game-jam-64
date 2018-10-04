@@ -23,7 +23,7 @@ public class PositionLogger : MonoBehaviour {
     private float _lastEntryTime_s = 0.0f;
     private float _lastLogTime_s = 0.0f;
 
-    private APIClient m_ApiClient = new APIClient();
+    private APIClient m_ApiClient;
 
     void Awake() {
         m_ApiClient = GetComponent<APIClient>();

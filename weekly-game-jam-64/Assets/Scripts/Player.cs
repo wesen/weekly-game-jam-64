@@ -26,6 +26,10 @@ public class Player : MonoBehaviour {
     private int waitStep = 0;
     AudioSource[] footsteps;
 
+    public bool IsTitleScreen = false;
+
+    public List<AudioClip> FootSteps;
+
     enum State {
         IDLE,
         MOVING,
@@ -99,6 +103,10 @@ public class Player : MonoBehaviour {
     private void _handleMovement() {
         float x = Input.GetAxisRaw("Horizontal");
         float y = Input.GetAxisRaw("Vertical");
+
+        if (IsTitleScreen) {
+            y = 0;
+        }
 
         _moveDelta = new Vector3(x, y, 0) * Time.deltaTime * Speed;
         transform.Translate(_moveDelta);
