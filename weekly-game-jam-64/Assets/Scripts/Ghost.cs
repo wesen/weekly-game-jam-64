@@ -1,103 +1,53 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Collections;
 using UnityEngine;
-using UnityEngine.Networking;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
 
 public class Ghost : MonoBehaviour {
-    public float Speed;
-    private Int32 onStep = 0;
-    private List<GhostInformation> _informations;
+    private Animator _animator;
 
     private void Awake() {
-        RunGetPaths();
+        _animator = GetComponent<Animator>();
     }
 
-    bool isMoving = false;
-    float speed = 2f;
-
-    IEnumerator Move(Vector3 offsetFromCurrent) {
-        if (isMoving) yield break; // exit function
-        isMoving = true;
-        Vector3 from = transform.position;
-        Vector3 to = from + offsetFromCurrent;
-        for (float t = 0f; t < 1f; t += Time.deltaTime * speed) {
-            transform.position = Vector2.Lerp(from, to, t);
-            yield return null;
-        }
-
-        transform.position = to;
-        isMoving = false;
+    public void ExecuteMoves(GhostInformation information) {
+        StartCoroutine(CR_ExecuteMoves(information));
     }
 
-    //Path Get
-    public string ServerURL = "https://wgj64-server.herokuapp.com/";
+    private IEnumerator CR_ExecuteMoves(GhostInformation _information) {
+        int idx = 0;
+        if (_information.Movement.Length >= 2) {
+            Vector2 start = _information.Movement[idx++];
+            Vector2 target = _information.Movement[idx++];
+            transform.position = start;
 
-    public void RunGetPaths() {
-        StartCoroutine(CRGetPaths());
-    }
+            while (idx < _information.Movement.Length) {
+                for (float t = 0.0f; t < 0.5f; t += Time.deltaTime) {
+                    Vector2 prevPosition = transform.position;
+                    Vector2 newPosition = Vector2.Lerp(start, target, t * 2);
+                    Vector2 _moveDelta = newPosition - prevPosition;
 
-    private IEnumerator CRGetPaths() {
-        string url = ServerURL + "api/paths";
-        using (UnityWebRequest www = UnityWebRequest.Get(url)) {
-            yield return www.Send();
+                    if (_moveDelta.x > 0) {
+                        _animator.Play("player_walking_right");
+                    } else if (_moveDelta.x < 0) {
+                        _animator.Play("player_walking_left");
+                    } else if (_moveDelta.y < 0) {
+                        _animator.Play("player_walking_frontal");
+                    } else if (_moveDelta.y > 0) {
+                        _animator.Play("player_walking_up");
+                    } else {
+                        _animator.Play("player_idle_frontal");
+                    }
 
-            if (www.isNetworkError || www.isHttpError) {
-                Debug.Log(www.error);
-            } else {
-                string data1 = www.downloadHandler.text;
-                var pathsFromServer = JsonConvert.DeserializeObject<List<PathObject>>(data1);
-                _informations = pathsFromServer.Select(pathObject => GhostInformation.FromPathObject(pathObject)).ToList();
+                    transform.position = newPosition;
+                    yield return null;
+                }
+
+                start = target;
+                target = _information.Movement[idx++];
             }
         }
-    }
 
-    public class GhostInteraction {
-        public Vector2 Position;
-        public string Interaction;
+        Debug.Log("Finished moving");
 
-        public GhostInteraction(Vector2 position, string interaction) {
-            this.Interaction = interaction;
-            this.Position = position;
-        }
-    }
-
-    public class GhostInformation {
-        public Vector2 Position;
-        public Vector2[] Movement;
-        public GhostInteraction[] Interactions;
-        public string Room;
-        
-        public static GhostInformation FromPathObject(PathObject pathObject) {
-            GhostInformation information = new GhostInformation();
-            information.Room = pathObject.room;
-            information.Movement = pathObject.movement.Cast<JArray>().Select<JArray, Vector2>((JArray jarray) => {
-                return new Vector2(jarray[0].Value<float>(), jarray[1].Value<float>());
-            }).ToArray();
-            information.Interactions = pathObject.interaction.Cast<JArray>().Select(jarray => {
-                float x = jarray[0].Value<float>();
-                float y = jarray[1].Value<float>();
-                string interaction = jarray[2].Value<string>();
-                return new GhostInteraction(new Vector2(x, y), interaction);
-            }).ToArray();
-
-            return information;
-        }
-    }
-
-    //Path Obj
-    [System.Serializable]
-    public class PathObject {
-        public ArrayList position;
-        public string _id;
-        public string name;
-        public string room;
-        public ArrayList movement;
-        public ArrayList interaction;
-        public string createDate;
-        public Int32 __v;
+        Destroy(gameObject);
     }
 }

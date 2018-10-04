@@ -6,29 +6,31 @@ using TMPro;
 
 public class DialogueManager : MonoBehaviour {
 
-    public TextMeshProUGUI nameText;
-    public TextMeshProUGUI dialogueText;
+    public Text nameText;
+    public Text dialogueText;
     public Animator animator;
     private bool crRunning = false;
     private Coroutine cr;
 
 
-
     private Queue<string> sentences;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start()
+    {
         sentences = new Queue<string>();
-	}
+    }
 
-    public void StartDialogue(Dialogue dialogue) {
+    public void StartDialogue(Dialogue dialogue)
+    {
         animator.SetBool("IsOpen", true);
 
         nameText.text = dialogue.name;
 
         sentences.Clear();
 
-        foreach (string sentence in dialogue.sentences) {
+        foreach (string sentence in dialogue.sentences)
+        {
             sentences.Enqueue(sentence);
         }
 
@@ -36,23 +38,28 @@ public class DialogueManager : MonoBehaviour {
 
     }
 
-    public void DisplayNextSentence() {
-        if (sentences.Count == 0) {
+    public void DisplayNextSentence()
+    {
+        if (sentences.Count == 0)
+        {
             EndDialogue();
             return;
         }
 
         string sentence = sentences.Dequeue();
-        if (crRunning) {
+        if (crRunning)
+        {
             StopCoroutine(cr);
         }
         crRunning = true;
         cr = StartCoroutine(TypeSentence(sentence));
     }
 
-    IEnumerator TypeSentence(string sentence){
+    IEnumerator TypeSentence(string sentence)
+    {
         dialogueText.text = "";
-        foreach (char letter in sentence.ToCharArray()) {
+        foreach (char letter in sentence.ToCharArray())
+        {
             dialogueText.text += letter;
             yield return null;
         }
@@ -60,7 +67,8 @@ public class DialogueManager : MonoBehaviour {
         crRunning = false;
     }
 
-    void EndDialogue() {
+    void EndDialogue()
+    {
         animator.SetBool("IsOpen", false);
     }
 }

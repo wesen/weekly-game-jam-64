@@ -4,7 +4,7 @@ using UnityEngine;
 
 [System.Serializable]
 public class Dialogue {
-
+    public Sprite BackgroundImage;
     public string name;
 
     [TextArea(3,10)]

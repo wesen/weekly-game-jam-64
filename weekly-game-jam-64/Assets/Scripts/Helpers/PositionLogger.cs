@@ -1,14 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.Serialization;
 
 public class PositionLogger : MonoBehaviour {
     public float EntryInterval_s = 0.5f;
-    public float LogInterval_s = 10.0f;
+    public float LogInterval_s = 3.0f;
 
     class PositionEntry {
-        public Vector3 Position;
+        public Vector2 Position;
         public float Time_s;
 
         public PositionEntry(Vector2 position) {
@@ -22,7 +23,7 @@ public class PositionLogger : MonoBehaviour {
     private float _lastEntryTime_s = 0.0f;
     private float _lastLogTime_s = 0.0f;
 
-    private APIClient m_ApiClient;
+    private APIClient m_ApiClient = new APIClient();
 
     void Awake() {
         m_ApiClient = GetComponent<APIClient>();
@@ -42,12 +43,31 @@ public class PositionLogger : MonoBehaviour {
 
         if ((Time.time - _lastLogTime_s) > LogInterval_s) {
             PositionEntry[] entries = _entries.ToArray();
-//            foreach (PositionEntry entry in entries) {
-//                Debug.Log("pos " + entry.Position + " at " + entry.Time_s);
-//            }
-
             _lastLogTime_s = Time.time;
-            
+
+            if (entries.Length > 0) {
+                bool isStatic = true;
+                for (int i = 1; i < entries.Length; i++) {
+                    if (entries[i].Position != entries[0].Position) {
+                        isStatic = false;
+                        break;
+                    }
+                }
+
+                if (!isStatic) {
+                    ArrayList movements = new ArrayList();
+                    foreach (PositionEntry entry in entries) {
+                        movements.Add(new float[] {entry.Position.x, entry.Position.y});
+                    }
+
+                    ArrayList interactions = new ArrayList();
+
+                    m_ApiClient.RunSendPath(0, 0, "foobar",
+                        SceneManager.GetActiveScene().name,
+                        movements, interactions);
+                }
+            }
+
             _entries.Clear();
             _addCurrentPosition();
         }
