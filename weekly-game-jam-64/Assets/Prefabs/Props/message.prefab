@@ -65,7 +65,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogue:
-    name: 
     BackgroundImage: {fileID: 21300000, guid: 8a50d494852a2864daa0f18372313c08, type: 3}
     sentences: []
 --- !u!212 &212751717847128970
@@ -103,7 +102,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: a53f1b74992060f43b7c964d517a39de, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 175d448fb2d662b4485cc8635e6fcf37, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
