@@ -15,11 +15,9 @@ public class TileMapRandomizer : MonoBehaviour {
 
 	void Start () {
 		BoundsInt bounds = _tilemap.cellBounds;
-		Debug.Log("tilemap bounds " + bounds);
 		for (int x = bounds.min.x; x < bounds.max.x; x++) {
 			for (int y = bounds.min.y; y < bounds.max.y; y++) {
 				TileBase tile = _tilemap.GetTile(new Vector3Int(x, y, 0));
-				Debug.Log("tile " + x + " " + y + " " + tile);
 			}
 		}
 

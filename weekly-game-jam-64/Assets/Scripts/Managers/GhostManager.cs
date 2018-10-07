@@ -15,6 +15,7 @@ public class GhostManager : MonoBehaviour {
 
 
     private void Awake() {
+        _informations = new GhostInformation[0];
         if (Instance == null) {
             Instance = this;
             StartCoroutine(CR_GetPaths());
