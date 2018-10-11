@@ -7,3 +7,5 @@ weekly-game-jam-64/Assets/Plugins/Editor.meta
 weekly-game-jam-64/.idea/.idea.weekly-game-jam-64/.idea/contentModel.xml
 weekly-game-jam-64/.idea/.idea.weekly-game-jam-64/.idea/indexLayout.xml
 weekly-game-jam-64/Assets/Audio/GJW64T.wav
+build/
+build-webgl/
