@@ -81,6 +81,9 @@ GameObject:
   - component: {fileID: 124063714139166666}
   - component: {fileID: 81385278791578254}
   - component: {fileID: 114643773186413556}
+  - component: {fileID: 95650999867803374}
+  - component: {fileID: 114914978138781604}
+  - component: {fileID: 114492096557487076}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -623,6 +626,24 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!95 &95650999867803374
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1295860831736266}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d83c33cdd988049b69fbdcdcee20842a, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &114262349874413854
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -662,6 +683,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EntryInterval_s: 0.5
   LogInterval_s: 3
+--- !u!114 &114492096557487076
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1295860831736266}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23feb29a1bcb94a22b1000275d5a3612, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ShaderMaterial: {fileID: 2100000, guid: 507b69e357c8e4f139699de637a19e6d, type: 2}
 --- !u!114 &114643773186413556
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -703,6 +736,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d61fa88d80cfab2408a3f42360f82c19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114914978138781604
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1295860831736266}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23feb29a1bcb94a22b1000275d5a3612, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ShaderMaterial: {fileID: 2100000, guid: 5f809608e79754cbfadcfa891b5c6152, type: 2}
 --- !u!124 &124063714139166666
 Behaviour:
   m_ObjectHideFlags: 1
@@ -771,7 +816,7 @@ SpriteRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 2100000, guid: 49a08f654b0484e0caf27354028d96cc, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
