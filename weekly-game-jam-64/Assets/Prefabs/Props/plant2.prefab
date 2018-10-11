@@ -20,6 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4492719365112544}
   - component: {fileID: 212398189777798188}
+  - component: {fileID: 114749290415059124}
   m_Layer: 0
   m_Name: plant2
   m_TagString: Untagged
@@ -33,13 +34,24 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1085722641712122}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.80146646, y: 0.75528145, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1.76, y: 0.79999995, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114749290415059124
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1085722641712122}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39e61d23379b34ff58961b2f1fe9621e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &212398189777798188
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -55,7 +67,7 @@ SpriteRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 49a08f654b0484e0caf27354028d96cc, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

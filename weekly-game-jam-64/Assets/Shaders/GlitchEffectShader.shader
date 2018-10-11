@@ -1,34 +1,19 @@
-﻿Shader "Sprites/GlitchSpriteShader"
+﻿Shader "Custom/ChromaticAberration"
 {
 	Properties
 	{
-		[PerRendererData] _MainTex ("Sprite Texture", 2D) = "white" {}
-		_Color ("Tint", Color) = (1,1,1,1)
-		_Displacement ("ChromaticDisplacement", Float) = 0
+		_MainTex ("Texture", 2D) = "white" {}
+		_Displacement ("ChromaticDisplacement", Range(0,0.1)) = 0
 		_Tears ("Tears", Int) = 10
 		_TearsDistance ("TearsDistance", Range(-0.1,0.1)) = 0
 	}
 	SubShader
 	{
-	    Tags 
-	    {
-	      "Queue" = "Transparent"
-	      "RenderType" = "Transparent"
-	      "PreviewType" = "Planet"
-	      "CanUseSpriteAtlas" = "True"
-	    }
-	    
 		// No culling or depth
-		Cull Off
-		ZWrite Off
-		Lighting Off
-		ZTest Always
-		Blend One OneMinusSrcAlpha
+		Cull Off ZWrite Off ZTest Always
 
 		Pass
 		{
-            Name "Glitch"
-	    
 			CGPROGRAM
 			#pragma vertex vert
 			#pragma fragment frag
@@ -53,15 +38,12 @@
 			struct appdata
 			{
 				float4 vertex : POSITION;
-				float4 color: COLOR;
 				float2 uv : TEXCOORD0;
 			};
 
 			struct v2f
 			{
 				float2 uv : TEXCOORD0;
-				float4 color : COLOR;
-				float4 worldPos : TEXCOORD1;
 				float4 vertex : SV_POSITION;
 			};
 
@@ -69,14 +51,11 @@
 			{
 				v2f o;
 				o.vertex = UnityObjectToClipPos(v.vertex);
-				o.worldPos = mul(unity_ObjectToWorld, v.vertex);
-				o.color = v.color;
 				o.uv = v.uv;
 				return o;
 			}
 			
 			sampler2D _MainTex;
-			
 			float _Displacement;
 			int _Tears;
 			float _TearsDistance;
@@ -88,22 +67,15 @@
                 uv.x += rand(_ix) * _TearsDistance;
                 
 				fixed4 col = tex2D(_MainTex, uv);
-				
-				uv += float2(_Displacement, 0);
-				fixed4 ocol = tex2D(_MainTex, uv);
-				col.a = max(ocol.a, col.a);
-				col.g = ocol.g;
-				
-				uv += float2(_Displacement, 0);
-				ocol = tex2D(_MainTex, uv);
-				col.a = max(ocol.a, col.a);
-				col.b = ocol.b;
-				
-				col.rgb *= col.a;
-				col *= i.color;
+				col.r = tex2D(_MainTex, uv).r;
+				uv += float2(_Displacement, _Displacement);
+				col.g = tex2D(_MainTex, uv).g;
+				uv += float2(_Displacement, _Displacement);
+				col.b = tex2D(_MainTex, uv).b;
 				return col;
 			}
 			ENDCG
 		}
 	}
 }
+

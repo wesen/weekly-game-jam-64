@@ -6,8 +6,8 @@ Material:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: GlitchSpriteMaterial
-  m_Shader: {fileID: 4800000, guid: 4c57e9c411eed490aadab2f873171143, type: 3}
+  m_Name: GlitchEffectMaterial
+  m_Shader: {fileID: 4800000, guid: 6884d8aa16ad34eb7b210e6c07da02f5, type: 3}
   m_ShaderKeywords: ETC1_EXTERNAL_ALPHA
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -70,7 +70,7 @@ Material:
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
-    - _Tears: 30
+    - _Tears: 40
     - _TearsDistance: 0
     - _UVSec: 0
     - _ZWrite: 1
