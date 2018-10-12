@@ -3,12 +3,11 @@
 	Properties
 	{
 		_MainTex ("Texture", 2D) = "white" {}
-		_HoloTexture ("Texture", 2D) = "white" {}
+		_HoloTexture ("Hologram Texture", 2D) = "white" {}
 	}
 	SubShader
 	{
 		Tags {
-		 "RenderType"="Opaque" 
 	      "Queue" = "Transparent"
 	      "RenderType" = "Transparent"
 	      "CanUseSpriteAtlas" = "True"
@@ -19,14 +18,44 @@
 		ZWrite Off
 		Lighting Off
 		ZTest Always
-		Blend One OneMinusSrcAlpha
+//        ZWrite Off
 
 		
 //		UsePass "Sprites/GlitchSpriteShader/Glitch"
 		
+		Pass 
+		{
+		    Name "White"
+		    
+		    CGPROGRAM
+		    #pragma vertex vert
+		    #pragma fragment frag
+		    
+			#include "UnityCG.cginc"
+		    
+		    struct appdata { 
+		        float4 vertex: POSITION;
+		    };
+		    struct v2f { 
+		        float4 vertex : SV_POSITION;
+		    };
+		    v2f vert(appdata v) {
+		      v2f o;
+		      o.vertex = UnityObjectToClipPos(v.vertex);
+		      return o;
+		    }
+		    fixed4 frag(v2f i) : SV_Target {
+		      return fixed4(1, 0, 0, 1);
+		    }
+		    ENDCG
+		}
+		
 		Pass
 		{
-	        Name "InvertColor"
+	        Name "Hologram"
+	        
+	        BlendOp Add, Min
+            Blend SrcAlpha SrcAlpha
 	        
 			CGPROGRAM
 			#pragma vertex vert
@@ -78,6 +107,7 @@
 
 //				maskCol.a = 0.5;
 //				maskCol = float4(1, 1, 1, 1);
+                maskCol.rgb *= maskCol.a;
 				return maskCol;
 			}
 			ENDCG
