@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[ExecuteInEditMode]
 public class SpriteGlitcher : MonoBehaviour {
     private SpriteRenderer _renderer;
     private MaterialPropertyBlock _propertyBlock;
@@ -16,13 +17,13 @@ public class SpriteGlitcher : MonoBehaviour {
 
     IEnumerator CR_Glitch() {
         while (true) {
-            yield return new WaitForSeconds(Random.RandomRange(0.5f, 2.0f));
+            yield return new WaitForSeconds(Random.Range(0.5f, 2.0f));
 
             _renderer.GetPropertyBlock(_propertyBlock);
             _propertyBlock.SetFloat("_Displacement", Random.Range(-0.02f, 0.02f));
             _renderer.SetPropertyBlock(_propertyBlock);
             
-            yield return new WaitForSeconds(Random.RandomRange(0.1f, 0.3f));
+            yield return new WaitForSeconds(Random.Range(0.1f, 0.3f));
             _renderer.GetPropertyBlock(_propertyBlock);
             _propertyBlock.SetFloat("_Displacement", 0f);
             _renderer.SetPropertyBlock(_propertyBlock);
@@ -31,13 +32,13 @@ public class SpriteGlitcher : MonoBehaviour {
     
     IEnumerator CR_Glitch2() {
         while (true) {
-            yield return new WaitForSeconds(Random.RandomRange(0.5f, 2.0f));
+            yield return new WaitForSeconds(Random.Range(0.5f, 2.0f));
 
             _renderer.GetPropertyBlock(_propertyBlock);
             _propertyBlock.SetFloat("_TearsDistance", Random.Range(-0.1f, 0.1f));
             _renderer.SetPropertyBlock(_propertyBlock);
             
-            yield return new WaitForSeconds(Random.RandomRange(0.01f, 0.1f));
+            yield return new WaitForSeconds(Random.Range(0.01f, 0.1f));
             _renderer.GetPropertyBlock(_propertyBlock);
             _propertyBlock.SetFloat("_TearsDistance", 0f);
             _renderer.SetPropertyBlock(_propertyBlock);

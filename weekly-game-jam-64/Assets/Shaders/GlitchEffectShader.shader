@@ -19,22 +19,8 @@
 			#pragma fragment frag
 			
 			#include "UnityCG.cginc"
+			#include "Assets/Shaders/ShaderHelpers.cginc"
 			
-			float rand3(float3 co)
-            {
-                return frac(sin(dot(co.xyz ,float3(12.9898,78.233,45.5432) )) * 43758.5453);
-            }
-            
-			float rand2(float2 co)
-            {
-                return frac(sin(dot(co.xy ,float2(12.9898,78.233))) * 43758.5453);
-            }
-            
-			float rand(float co)
-            {
-                return frac(sin(co * 12.9898) * 43758.5453);
-            }
-
 			struct appdata
 			{
 				float4 vertex : POSITION;

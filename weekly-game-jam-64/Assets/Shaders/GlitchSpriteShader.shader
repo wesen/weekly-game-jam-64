@@ -33,22 +33,8 @@
 			#pragma fragment frag
 			
 			#include "UnityCG.cginc"
+			#include "Assets/Shaders/ShaderHelpers.cginc"
 			
-			float rand3(float3 co)
-            {
-                return frac(sin(dot(co.xyz ,float3(12.9898,78.233,45.5432) )) * 43758.5453);
-            }
-            
-			float rand2(float2 co)
-            {
-                return frac(sin(dot(co.xy ,float2(12.9898,78.233))) * 43758.5453);
-            }
-            
-			float rand(float co)
-            {
-                return frac(sin(co * 12.9898) * 43758.5453);
-            }
-
 			struct appdata
 			{
 				float4 vertex : POSITION;
@@ -82,22 +68,7 @@
 
 			fixed4 frag (v2f i) : SV_Target
 			{
-                float2 uv = i.uv;
-                float _ix = floor(i.uv.y * _Tears);
-                uv.x += rand(_ix) * _TearsDistance;
-                
-				fixed4 col = tex2D(_MainTex, uv);
-				
-				uv += float2(_Displacement, 0);
-				fixed4 ocol = tex2D(_MainTex, uv);
-				col.a = max(ocol.a, col.a);
-				col.g = ocol.g;
-				
-				uv += float2(_Displacement, 0);
-				ocol = tex2D(_MainTex, uv);
-				col.a = max(ocol.a, col.a);
-				col.b = ocol.b;
-				
+			    float4 col = glitch(_MainTex, i.uv, _Displacement, _Tears, _TearsDistance);
 				col.rgb *= col.a;
 				col *= i.color;
 				return col;
