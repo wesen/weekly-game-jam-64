@@ -161,9 +161,42 @@ Prefab:
       propertyPath: m_Name
       value: player_ghost (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1752042927416548, guid: 5c13a8858f1d2e64f829559b6c648fe5, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5c13a8858f1d2e64f829559b6c648fe5, type: 2}
   m_IsPrefabAsset: 0
+--- !u!1 &259240083 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1752042927416548, guid: 5c13a8858f1d2e64f829559b6c648fe5,
+    type: 2}
+  m_PrefabInternal: {fileID: 259240082}
+--- !u!114 &259240084
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 259240083}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 137205160dcf9c34b8b31f4a51c3d795, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlitchSettings:
+  - GlitchedDuration: {x: 1.1968653, y: 2.2369983}
+    NormalDuration: {x: 1.0543814, y: 1.9520304}
+    LerpDuration: 0
+    RandomAmplitude: 0.9
+    Value: 1.2
+    PropertyName: _Scale
+  - GlitchedDuration: {x: 1.1968653, y: 2.2369983}
+    NormalDuration: {x: 1.0543814, y: 1.9520304}
+    LerpDuration: 0
+    RandomAmplitude: 2
+    Value: 3
+    PropertyName: _Speed
 --- !u!114 &264831182 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 114733249990338318, guid: d5acc8aa5283a5e4d828c660c9cc4615,
@@ -891,6 +924,11 @@ Prefab:
     - target: {fileID: 4538249879324612, guid: f5cd0fe4e9f2b864b923718e3cb9e07a, type: 2}
       propertyPath: m_RootOrder
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114643773186413556, guid: f5cd0fe4e9f2b864b923718e3cb9e07a,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f5cd0fe4e9f2b864b923718e3cb9e07a, type: 2}
